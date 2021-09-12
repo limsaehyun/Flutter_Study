@@ -14,14 +14,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello World!'),
-        ),
-          body: Text(
-            'Hello World!',
-            style: TextStyle(fontSize: 30),
-          )),
+      home: HelloPage('Hello world!')
     );
+  }
+}
+
+class HelloPage extends StatefulWidget {
+  final String title;
+
+  HelloPage(this.title);
+
+  @override
+  _HelloPageState createState() => _HelloPageState();
+}
+
+class _HelloPageState extends State<HelloPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+        body: Text(widget.title, style: TextStyle(fontSize: 30)));
   }
 }
